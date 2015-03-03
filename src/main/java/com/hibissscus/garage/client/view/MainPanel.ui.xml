@@ -1,0 +1,54 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:c="urn:import:com.hibissscus.garage.client.view.component">
+
+    <!-- import for i18n messages -->
+    <ui:with type="com.hibissscus.garage.client.view.resource.Messages" field="messages"/>
+    <!-- import for resources bundle -->
+    <ui:with type="com.hibissscus.garage.client.view.resource.ApplicationResources" field="res"/>
+
+    <g:DockLayoutPanel>
+        <!-- Top panel -->
+        <g:north size="215">
+            <g:HTMLPanel>
+                <h1>
+                    <g:Image ui:field="logo"/>
+                </h1>
+                <!-- main toolbox -->
+                <g:FlowPanel styleName="{res.style.panel}">
+                    <c:Spinner ui:field="levelSpinner" styleName="{res.style.spinner}"/>
+                    <c:Spinner ui:field="rowSpinner" styleName="{res.style.spinner}"/>
+                    <c:Spinner ui:field="columnSpinner" styleName="{res.style.spinner}"/>
+                    <c:ImageButton resource="{res.randomIcon}" styleName="{res.style.button}"
+                                   title="random values"
+                                   text="{messages.randomButton}" ui:field="randomButton"/>
+                    <c:ImageButton resource="{res.reloadIcon}" styleName="{res.style.button}"
+                                   title="rebuild garage"
+                                   text="{messages.rebuildButton}" ui:field="rebuildButton"/>
+                    <g:ListBox ui:field="levelBox" styleName="{res.style.box}"
+                               title="current level"/>
+                    <c:ImageButton resource="{res.githubIcon}" styleName="{res.style.button}"
+                                   addStyleNames="{res.style.floatRight}"
+                                   title="show project on github"
+                                   text="" ui:field="githubButton"/>
+                    <c:ImageButton resource="{res.linkedinIcon}" styleName="{res.style.button}"
+                                   addStyleNames="{res.style.floatRight}"
+                                   title="show linkedin profile"
+                                   text="" ui:field="linkedinButton"/>
+                </g:FlowPanel>
+            </g:HTMLPanel>
+        </g:north>
+
+        <g:west size="530">
+            <g:HTMLPanel ui:field="svgContainer"/>
+        </g:west>
+
+        <g:center>
+            <g:ScrollPanel>
+                <g:FlowPanel ui:field="vehiclePanel">
+                </g:FlowPanel>
+            </g:ScrollPanel>
+        </g:center>
+    </g:DockLayoutPanel>
+</ui:UiBinder>

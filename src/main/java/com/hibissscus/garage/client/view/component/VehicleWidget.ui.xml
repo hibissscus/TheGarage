@@ -1,0 +1,15 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+    <!-- import for i18n messages -->
+    <ui:with type="com.hibissscus.garage.client.view.resource.Messages" field="messages"/>
+    <!-- import for resources bundle -->
+    <ui:with type="com.hibissscus.garage.client.view.resource.ApplicationResources" field="res"/>
+
+    <g:FlowPanel styleName="{res.style.block}">
+        <g:Image ui:field="image"/>
+        <g:InlineLabel styleName="{res.style.text}" text="" ui:field="textBox"/>
+        <g:Button styleName="{res.style.button}" text="park" ui:field="button"/>
+        <g:InlineLabel styleName="{res.style.simpleText}" text="" ui:field="parking"/>
+    </g:FlowPanel>
+</ui:UiBinder> 
