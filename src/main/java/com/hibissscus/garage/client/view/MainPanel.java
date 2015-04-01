@@ -84,6 +84,12 @@ public class MainPanel extends Composite {
     ImageButton randomButton;
 
     /**
+     * Github button.
+     */
+    @UiField
+    ImageButton pdfButton;
+
+    /**
      * Linkedin button.
      */
     @UiField
@@ -345,6 +351,17 @@ public class MainPanel extends Composite {
 
         reloadTable();
         showTheGarage();
+    }
+
+    /**
+     * On pdf button click.
+     *
+     * @param e the e
+     */
+    @UiHandler("pdfButton")
+    void onPdfClick(ClickEvent e) {
+//        eventBus.fireEvent(new PdfEvent(this.modelHandler.getVehicles()));
+        Window.Location.assign("http://127.0.0.1:8888/download");
     }
 
     /**

@@ -4,13 +4,12 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.http.client.*;
 import com.google.inject.Inject;
-import com.hibissscus.garage.client.event.IpAddressEvent;
-import com.hibissscus.garage.client.event.IpAddressEventHandler;
-import com.hibissscus.garage.client.event.ParkEvent;
-import com.hibissscus.garage.client.event.ParkEventHandler;
+import com.hibissscus.garage.client.event.*;
 import com.hibissscus.garage.client.model.ModelHandler;
 import com.hibissscus.garage.client.view.MainPanel;
 import com.hibissscus.garage.shared.model.vehicle.Vehicle;
+
+import java.util.List;
 
 /**
  * Web App Controller manage all business events and communicate with server services.
@@ -58,6 +57,12 @@ public class WebAppController {
                 WebAppController.this.park(event.getVehicle());
             }
         });
+        eventBus.addHandler(PdfEvent.TYPE, new PdfEventHandler() {
+            @Override
+            public void onPdfEventHandler(PdfEvent event) {
+                WebAppController.this.jasperReport(event.getVehicle());
+            }
+        });
 
         // start: store client ip
         eventBus.fireEvent(new IpAddressEvent());
@@ -77,6 +82,31 @@ public class WebAppController {
         mainPanel.showTheGarage();
     }
 
+
+    /**
+     * jasper
+     */
+    void jasperReport(List<Vehicle> vehicles) {
+        String pageBaseUrl = GWT.getHostPageBaseURL();
+
+        RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET, pageBaseUrl + "/download");
+        requestBuilder.setCallback(new RequestCallback() {
+
+            public void onError(Request request, Throwable e) {
+                // some error handling code here
+
+            }
+
+            public void onResponseReceived(Request request, Response response) {
+            }
+        });
+
+        try {
+            requestBuilder.send();
+        } catch (RequestException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Ip address

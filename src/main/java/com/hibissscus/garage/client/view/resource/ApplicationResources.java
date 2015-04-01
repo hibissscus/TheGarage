@@ -59,6 +59,10 @@ public interface ApplicationResources extends ClientBundle {
     @ImageOptions(repeatStyle = RepeatStyle.Both)
     ImageResource githubIcon();
 
+    @Source("images/pdf.png")
+    @ImageOptions(repeatStyle = RepeatStyle.Both)
+    ImageResource pdfIcon();
+
 
     // Spinner
 

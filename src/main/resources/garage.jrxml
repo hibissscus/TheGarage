@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="garage" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="37b31b37-0107-4918-829d-6bcdb20a670a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#778899">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFDFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<field name="licensePlate" class="java.lang.String"/>
+	<field name="parkingPosition" class="java.lang.String"/>
+	<field name="iconUrl" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="555" height="70" uuid="53af65e9-0f15-4508-81a3-c8be0f124bb7"/>
+				<imageExpression><![CDATA["C:\\GitHub\\TheGarage\\src\\main\\java\\com\\hibissscus\\garage\\client\\view\\resource\\images\\theGarage.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="162" y="41" width="152" height="19" uuid="6d9f5fc7-1f60-4c48-b668-d07699170559"/>
+				<text><![CDATA[License plate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="314" y="41" width="241" height="19" uuid="a9a787f0-25ac-410a-bbb7-a5f2a07c7ee9"/>
+				<text><![CDATA[Parking position]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="46" y="41" width="116" height="19" uuid="31ac9ddc-ea0e-44ca-8261-176b7e2cea5c"/>
+				<text><![CDATA[Vehicle]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="77" splitType="Stretch">
+			<textField>
+				<reportElement x="162" y="0" width="152" height="50" uuid="c62815c0-5e59-45de-a0b9-f51db9d82924"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{licensePlate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="0" width="241" height="50" uuid="970b0abd-3df9-417c-92d7-e80dcf252513"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{parkingPosition}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="46" y="0" width="116" height="50" uuid="3f7200bd-b2fa-4781-bb13-482e4f1a2a89"/>
+				<imageExpression><![CDATA[new java.net.URL($F{iconUrl})]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="77c29827-130e-4dd8-8525-dcd649e21b85"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="c4d1e2b9-f303-4214-8932-f14e99d0f773"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="8251e612-acb3-44c9-adad-50c06cce5422"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -28,6 +28,10 @@
                                    text="{messages.rebuildButton}" ui:field="rebuildButton"/>
                     <g:ListBox ui:field="levelBox" styleName="{res.style.box}"
                                title="current level"/>
+                    <c:ImageButton resource="{res.pdfIcon}" styleName="{res.style.button}"
+                                   addStyleNames="{res.style.floatRight}"
+                                   title="show jasper report"
+                                   text="" ui:field="pdfButton"/>
                     <c:ImageButton resource="{res.githubIcon}" styleName="{res.style.button}"
                                    addStyleNames="{res.style.floatRight}"
                                    title="show project on github"
