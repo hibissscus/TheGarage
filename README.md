@@ -1,6 +1,8 @@
 TheGarage
 ===============
 
+![image](https://user-images.githubusercontent.com/1389501/99114041-7c235080-25f0-11eb-85a8-0bff25d30ca0.png)
+
 Spring-Boot & GWT application
 
 ## GWT Developer Console
